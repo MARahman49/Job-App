@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>User Login</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <% include partials/UserNav.ejs %>
+      <div class="container" style="margin-top:30px">
+         <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <h3 class="panel-title"><strong class="text-info">User Login</strong></h3>
+               </div>
+               <div class="panel-body">
+                  <% errors.forEach(function(error){ %>
+                  <div class="alert alert-danger alert-dismissible" role="alert"><%= error %>
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                  <% }); %>
+                  <% if(error_msg!=0){ %>
+                        <div class="alert alert-danger alert-dismissible" role="alert"><%= error_msg %>
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                  <%}%>
+                   <% if(sucess_msg!=0){ %>
+                        <div class="alert alert-success alert-dismissible" role="alert"><%= sucess_msg %>
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                    <%}%>
+                  <form name="UserLogin" method="post" action="/login"  role="form">
+                     <div class="form-group">
+                        <input type="email" name="email" id="email" class="form-control " placeholder="Email Address" tabindex="4">
+                     </div>
+                     <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control " placeholder="Password" tabindex="5">
+                     </div>
+                     <button type="submit" class="btn btn-primary btn-block pull-right">Log IN</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

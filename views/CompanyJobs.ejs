@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Company Dashboard</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <% include partials/JobsNav.ejs %>
+      <div class="container">
+         <div class="jumbotron">
+            <h1><b class="text-success">Company Management </b></h1>
+            <p class="lead"><span class="text-info">From here You can See All Job of <%= Company.Name %> Company and Can Also Post New Jobs</span></p>
+            </p>
+         </div>
+         <br>
+                  <% if(error_msg!=0){ %>
+                        <div class="alert alert-danger alert-dismissible" role="alert"><%= error_msg %>
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                  <%}%>
+                   <% if(sucess_msg!=0){ %>
+                        <div class="alert alert-success alert-dismissible" role="alert"><%= sucess_msg %>
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                    <%}%>
+         
+                  <div class="panel panel-info panel-horizontal">
+                  <div class="panel-heading">
+                  <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                         <thead>
+                           <th>S.no</th>
+                              <th>Job Name</th>
+                               <th>Job Type</th>
+                                  <th> Location</th>
+                                    <th>&nbsp;&nbsp;&nbsp;<i class="fa fa-trash fa-2x"></i></th>
+                                     </div>
+                                   </div>
+                                  </thead>
+                                 <tbody>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+      </html>

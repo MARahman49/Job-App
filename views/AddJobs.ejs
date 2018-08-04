@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Company Dashboard</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <% include partials/JobsNav.ejs %>
+      <div class="container">
+         <div class="jumbotron">
+            <h1><b class="text-success">Company Management </b></h1>
+            <p class="lead"><span class="text-info">From here You can See All Job of <%= Company.Name %> Company and Can Also Post New Jobs</span></p>
+            </p>
+         </div>
+         <br>
+                  <% if(error_msg!=0){ %>
+                        <div class="alert alert-danger alert-dismissible" role="alert"><%= error_msg %>
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                  <%}%>
+                   <% if(sucess_msg!=0){ %>
+                        <div class="alert alert-success alert-dismissible" role="alert"><%= sucess_msg %>
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                    <%}%>
+             <div class="panel panel-primary panel-horizontal">
+                  <div class="panel-heading"><b>Post New Job</b>
+                        </div>
+                        <div class="panel-body">
+                         <form class="form" action="/company/<%= Company.Name %>/AddJob" method="post" role="form">
+                           <div class="form-group">
+                             <input type="text" name="JobName" class="form-control" id="name" placeholder="Job Name">
+                           </div>
+                        <div class="form-group">
+                        <select class="form-control" name="JobType">
+                           <option selected disabled>Job Type</option>
+                           <option value="Full Time">Full Time</option>
+                           <option value="Part Time">Part Time</option>
+                           <option value="internship">Internship</option>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <select class="form-control" name="JobLocation">
+                           <option selected disabled>Job Location</option>
+                           <option value="Lahore">Lahore</option>
+                           <option value="Peshawar">Peshawar</option>
+                           <option value="Islamabad">Islamabad</option>
+                           <option value="Karachi">Karachi</option>
+                           <option value="Quetta">Quetta</option>
+                           <option value="Rawalpindi">Rawalpindi</option>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <select class="form-control" name="Salary">
+                           <option selected disabled>Salary Range</option>
+                           <option value="Without Pay">Without Pay</option>
+                           <option value="0-10K">0-10K</option>
+                           <option value="10K-20K">10K-20K</option>
+                           <option value="20K-30K">20K-30K</option>
+                           <option value="30K-40K">30K-40K</option>
+                           <option value="40K-50K">40K-50K</option>
+                           <option value="50K-100K">50K-100K</option>
+                           <option value="100K+">100K+</option>
+                        </select>
+                     </div>
+                     <button type="submit" class="btn btn-info btn-block">Post Job</button>
+                        </form>
+                        </div>
+                  </div>
+                  </div>
+             </body>
+      </html>
